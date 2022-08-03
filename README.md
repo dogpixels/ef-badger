@@ -1,5 +1,5 @@
 # Eurofurence Badger for Firefox
-enhances your visit to the Eurofurence website by adding `new` badges to pages that have been updated since you last viewed them!
+Enhances your visit to the Eurofurence website by adding `new` badges to pages that have been updated since you last viewed them.
 
 # Requirements
 * Firefox 57+
