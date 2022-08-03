@@ -1,0 +1,28 @@
+{
+	"manifest_version": 2,
+	"name": "Eurofurence Website Badger",
+	"version": "1.0.0",
+	"description": "Adds notification badges to newly changed content on www.eurofurence.org since your last visit. Source: https://github.com/dogpixels/ef-badger-firefox",
+	"icons": {
+		"16": "img/16.png",
+		"32": "img/32.png",
+		"48": "img/48.png",
+		"64": "img/64.png",
+		"128": "img/128.png",
+		"192": "img/192.png"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://www.eurofurence.org/*",
+				"https://wwwtest.eurofurence.org/*"
+			],
+			"js": ["js/www.eurofurence.org.js"],
+			"css": ["css/www.eurofurence.org.css"]
+		}
+	],
+	"permissions": [
+		"https://*.eurofurence.org/*",
+		"storage"
+	]
+}

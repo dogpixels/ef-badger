@@ -1,0 +1,29 @@
+/* badge layout */
+.ef-badger-new {
+	content: "new";
+	display: inline-block;
+	position: absolute;
+	color: #fff;
+	background-color: #f00;
+	padding: 0 4px;
+	border-radius: 4px;
+	font-family: sans-serif;
+	text-decoration: none;
+	font-size: 10pt;
+	line-height: 0.9em;
+	z-index: 9;
+}
+
+/* adjustments */
+nav .ef-badger-new {
+	position: relative;
+	line-height: 1.1em;
+	left: .5em;
+	top: 1px;
+}
+#news .ef-badger-new {
+	top: auto;
+	left: auto;
+	bottom: 3px;
+	right: 16px;
+}
