@@ -15,3 +15,6 @@ Enhances your visit to the Eurofurence website by adding `new` badges to pages t
 Feedback welcome via Telegram: https://t.me/draconigen or eMail: draconigen@gmail.com
 
 You know JavaScript and want to improve this Extension? Pull Requests to this repository are always welcome.
+
+## Disclaimer
+This addon merely provides help and does not lift your responsibility to observe the Eurofurence website and other official channels for information relevant to your planning. No responsibility is assumed for missed information.
