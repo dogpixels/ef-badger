@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
 	"name": "Eurofurence Badger",
-	"version": "1.0.0",
-	"description": "Enhances your visit to the Eurofurence website by adding new badges to pages that have been updated since you last viewed them. Source: https://github.com/dogpixels/ef-badger-firefox",
+	"version": "1.1.0",
+	"description": "Enhances your visit to the Eurofurence website by adding 'new' badges to pages that have been updated since you last viewed them. Source: https://github.com/dogpixels/ef-badger",
 	"icons": {
 		"16": "img/16.png",
 		"32": "img/32.png",
@@ -17,8 +17,7 @@
 				"https://www.eurofurence.org/*",
 				"https://wwwtest.eurofurence.org/*"
 			],
-			"js": ["js/www.eurofurence.org.js"],
-			"css": ["css/www.eurofurence.org.css"]
+			"js": ["js/www.eurofurence.org.js"]
 		}
 	],
 	"permissions": [

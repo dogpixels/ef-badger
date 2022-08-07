@@ -1,12 +1,19 @@
 /*	
- *	Eurofurence Website Badger for Firefox
+ *	Eurofurence Website Badger for Chrome
  * 	draconigen@gmail.com
  */
 
 const debug = true;
-const now = Math.floor(Date.now() / 1000);
 
-// decorate news on news ready
+async function storage_get()
+{
+	return await chrome.storage.local.get(); // browser-specific code
+}
+async function storage_set(data)
+{
+	return await chrome.storage.local.set(data); // browser-specific code
+}
+
 document.body.addEventListener("newsLoaded", async () =>
 {
 	// make sure to run only once
@@ -14,47 +21,43 @@ document.body.addEventListener("newsLoaded", async () =>
 		return;
 	window.badgerized = true;
 
-	var data = await chrome.storage.local.get();
-	if (debug) console.log("data loaded from storage:", data);
+	var data = await storage_get();
+	if (debug) console.log(`[ef-badger] data loaded from storage:`, data);
 
-	document.querySelectorAll("[data-lastmodified]").forEach(element =>
+	document.querySelectorAll('[data-lastmodified]').forEach(element =>
 	{
 		const page = element.href;
 		const mod = element.dataset.lastmodified;
 		const active = element.classList.contains('ef-active');
 
-		console.log("> ", page);
-
 		if (!(page in data))
 		{
-			if (debug) console.info(`adding ${mod} for page ${page}`);
+			if (debug) console.info(`page not in storage, adding ${page}`);
+			element.classList.add('ef-new');
 			data[page] = mod;
 		}
-		
-		if (mod > data[page])
+		else if (mod > data[page])
 		{
 			if (debug) console.info(`${mod} > ${data[page]} -> decorating`)
 			{
-				let badge = document.createElement("span");
-				badge.classList.add("ef-badger-new");
-				badge.innerHTML = "new";
-				element.appendChild(badge);
+				element.classList.add('ef-new');
 
-				element.addEventListener('click', () => 
+				element.addEventListener('click', async () => 
 				{
-					if (debug) console.log(`user clicked on badge, updating ${page}`);
+					if (debug) console.info(`user clicked on badge, updating ${page}`);
 					data[page] = mod;
-					chrome.storage.local.set(data);
+					await storage_set(data);
+					element.classList.remove('ef-new');
 				});
 			}
 		}
 
-		if (active) // show the badge once if page is accessed directly
+		if (active)
 		{
 			if (debug) console.info(`updating ${mod} for active page ${page}`);
 			data[page] = mod;
-		}	
+		}
 	});
 
-	chrome.storage.local.set(data);
+	await storage_set(data);
 });
