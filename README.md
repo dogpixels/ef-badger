@@ -2,7 +2,7 @@
 Enhances your visit to the Eurofurence website by adding `new` badges to pages that have been updated since you last viewed them.
 
 # Requirements
-* Firefox 57+ or
+* Firefox 109+ or
 * Chrome
 
 > Note that this addon only works with the **main** website (address starting with `www.`), and only for pages hosted on the main website itself. Any other site and service under Eurofurence that is **not** on the main website (address does not start with `www.`) is not supported.
